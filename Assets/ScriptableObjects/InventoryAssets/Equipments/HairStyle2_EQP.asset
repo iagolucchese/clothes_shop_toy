@@ -15,8 +15,8 @@ MonoBehaviour:
   itemCost: 20
   itemSellValue: 5
   itemName: Hair Style 2
-  itemIcon: {fileID: 0}
-  outfitAnimator: {fileID: 0}
+  itemIcon: {fileID: 1437136890, guid: 1c8501d0ba6610f4591bcd07ebed1063, type: 3}
+  outfitAnimator: {fileID: 22100000, guid: 5e3c97e0a9aed7047aea00e0b29cb8cf, type: 2}
   validSlots:
   - {fileID: 11400000, guid: 150ef65d35321c54cbab59ab2737761e, type: 2}
   hidesOtherSlots: []

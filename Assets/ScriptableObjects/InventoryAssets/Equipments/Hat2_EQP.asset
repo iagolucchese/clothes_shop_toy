@@ -15,8 +15,8 @@ MonoBehaviour:
   itemCost: 40
   itemSellValue: 5
   itemName: Hat 2
-  itemIcon: {fileID: 0}
-  outfitAnimator: {fileID: 0}
+  itemIcon: {fileID: 1307380343, guid: 1cab297712443554f814775c4eeb7cf8, type: 3}
+  outfitAnimator: {fileID: 22100000, guid: 5446cb7e0ca23c54198425322b3a6a69, type: 2}
   validSlots:
   - {fileID: 11400000, guid: 6a95049919a3e584d93ccb9cbecc2485, type: 2}
   hidesOtherSlots: []
