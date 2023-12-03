@@ -1,10 +1,9 @@
-﻿using System;
-using NaughtyAttributes;
+﻿using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.InputSystem;
 
-namespace Player
+namespace ClothesShopToy
 {
     public class InputMovement2D : MonoBehaviour
     {
