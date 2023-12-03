@@ -46,6 +46,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemsOnInventory: []
+  startingCash: 100
+  moneyOnHand: 0
 --- !u!114 &70706529907184320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58,6 +60,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8722938d79394ac3b3a0fbd963798475, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inventoryHolder: {fileID: 5031667378990181269}
   equipmentSlots:
   - slot: {fileID: 11400000, guid: 150ef65d35321c54cbab59ab2737761e, type: 2}
     item: {fileID: 0}

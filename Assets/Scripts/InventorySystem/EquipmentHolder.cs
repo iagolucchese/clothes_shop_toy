@@ -10,7 +10,8 @@ namespace ClothesShopToy
         public delegate void EquipmentEvent(EquipmentHolder holder, EquipmentSlot slot, ItemEquipmentAsset equipmentAsset);
         public event EquipmentEvent OnItemEquipped;
         public event EquipmentEvent OnItemUnequipped;
-        
+
+        [SerializeField] private InventoryHolder inventoryHolder;
         [SerializeField] private List<SlotEquipmentPair> equipmentSlots;
 
         public List<SlotEquipmentPair> EquipmentSlots => equipmentSlots;
@@ -19,6 +20,8 @@ namespace ClothesShopToy
         private void OnEnable()
         {
             Assert.IsTrue(equipmentSlots.IsValidAndNotEmpty());
+
+            inventoryHolder.OnItemRemoved += InventoryItemRemovedCallback;
         }
         #endregion
 
@@ -99,6 +102,15 @@ namespace ClothesShopToy
         {
             bool isEquipped = IsItemEquipped(item);
             return isEquipped ? UnequipItem(item) : TryEquipItem(item);
+        }
+        #endregion
+        
+        #region Private Methods
+        private void InventoryItemRemovedCallback(InventoryHolder holder, ItemAsset item)
+        {
+            if (inventoryHolder != holder) return;
+
+            UnequipItem(item as ItemEquipmentAsset);
         }
         #endregion
     }

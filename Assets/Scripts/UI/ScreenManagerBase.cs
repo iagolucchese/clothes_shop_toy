@@ -1,6 +1,7 @@
 ﻿using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.Assertions;
+using UnityEngine.Events;
 
 namespace ClothesShopToy.UI
 {
@@ -15,6 +16,8 @@ namespace ClothesShopToy.UI
         [Header("Screen Manager")]
         [SerializeField] protected Canvas canvas;
         [SerializeField] protected CanvasGroup canvasGroup;
+        [SerializeField, Foldout("UnityEvents")] private UnityEvent onScreenShow;
+        [SerializeField, Foldout("UnityEvents")] private UnityEvent onScreenHide;
         
         public bool IsShowingScreen => canvas.enabled && canvasGroup.alpha > 0f;
         
@@ -51,9 +54,15 @@ namespace ClothesShopToy.UI
             canvas.enabled = show;
             canvasGroup.interactable = show;
             if (show)
+            {
                 OnScreenOpened?.Invoke();
+                onScreenShow?.Invoke();
+            }
             else
+            {
                 OnScreenClosed?.Invoke();
+                onScreenHide?.Invoke();
+            }
         }
         #endregion
     }

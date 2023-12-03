@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e71533cbb6bf43c5b5c6fe5f5a151da9, type: 3}
   m_Name: Hat2_EQP
   m_EditorClassIdentifier: 
-  itemCost: 10
-  itemSellValue: 8
+  itemCost: 40
+  itemSellValue: 5
   itemName: Hat 2
   itemIcon: {fileID: 0}
+  outfitAnimator: {fileID: 0}
   validSlots:
   - {fileID: 11400000, guid: 6a95049919a3e584d93ccb9cbecc2485, type: 2}
+  hidesOtherSlots: []

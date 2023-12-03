@@ -1,4 +1,5 @@
 ﻿using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,20 +13,29 @@ namespace ClothesShopToy.UI
         [SerializeField] private Image itemIconImage;
         [SerializeField] private Image equippedOverlay;
         [SerializeField] private Button itemButton;
+        [SerializeField] private GameObject sellValueFrame;
+        [SerializeField] private TMP_Text itemSellValueText;
 
         private void OnEnable()
         {
-            itemButton.onClick.AddListener(ItemClicked);
+            itemButton.onClick.AddListener(RaiseOnItemClicked);
         }
 
         private void OnDisable()
         {
-            itemButton.onClick.RemoveListener(ItemClicked);
+            itemButton.onClick.RemoveListener(RaiseOnItemClicked);
         }
 
-        private void ItemClicked()
+        private void RaiseOnItemClicked()
         {
             OnItemClicked?.Invoke(this);
+        }
+
+        public void SetSellValueFrame(bool showFrame, ItemAsset item)
+        {
+            if (item != null)
+                itemSellValueText.text = item.ItemSellValue.ToString();
+            sellValueFrame.SetActive(showFrame);
         }
 
         public void SetIcon(Sprite newIcon)

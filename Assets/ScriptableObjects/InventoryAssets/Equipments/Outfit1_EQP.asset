@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e71533cbb6bf43c5b5c6fe5f5a151da9, type: 3}
   m_Name: Outfit1_EQP
   m_EditorClassIdentifier: 
-  itemCost: 10
-  itemSellValue: 8
+  itemCost: 15
+  itemSellValue: 5
   itemName: Outfit 1
   itemIcon: {fileID: 309367547, guid: 8258fd2a10c98f640bdef0488e2a1f9e, type: 3}
+  outfitAnimator: {fileID: 22100000, guid: ccb18e3ffb5b9e94a9da85f6e72542ba, type: 2}
   validSlots:
   - {fileID: 11400000, guid: 9d9cd9bbdcb61a74d951e133b188627a, type: 2}
-  outfitAnimator: {fileID: 22100000, guid: ccb18e3ffb5b9e94a9da85f6e72542ba, type: 2}
+  hidesOtherSlots: []

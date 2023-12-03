@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: HairStyle1_EQP
   m_EditorClassIdentifier: 
   itemCost: 10
-  itemSellValue: 8
+  itemSellValue: 5
   itemName: Hair Style 1
   itemIcon: {fileID: 1517634595, guid: 89e8e7318ccedcd4bb955b71840336fd, type: 3}
+  outfitAnimator: {fileID: 22100000, guid: fb5f3fe45e0bd9f4b82d1362f4febc3a, type: 2}
   validSlots:
   - {fileID: 11400000, guid: 150ef65d35321c54cbab59ab2737761e, type: 2}
-  outfitAnimator: {fileID: 22100000, guid: fb5f3fe45e0bd9f4b82d1362f4febc3a, type: 2}
+  hidesOtherSlots: []
