@@ -1,4 +1,5 @@
-﻿using ImportedScripts;
+﻿using System.Collections.Generic;
+using ImportedScripts;
 using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -10,27 +11,24 @@ namespace ClothesShopToy
     {
         [Header("Inspector References")]
         [SerializeField] private SpriteRenderer playerSpriteRenderer;
-        [SerializeField] private Animator playerAnimator;
         [SerializeField] private InputActionReference movementInput;
+        [SerializeField] private Animator mainAnimator;
+        [SerializeField] private List<Animator> outfitAnimators;
+
         [Header("Animator Parameters")]
-        [SerializeField, AnimatorParam("playerAnimator")] private int horizontalParam;
-        [SerializeField, AnimatorParam("playerAnimator")] private int verticalParam;
-        [SerializeField, AnimatorParam("playerAnimator")] private int walkParam;
+        [SerializeField, AnimatorParam("mainAnimator")] private int horizontalParam;
+        [SerializeField, AnimatorParam("mainAnimator")] private int verticalParam;
+        [SerializeField, AnimatorParam("mainAnimator")] private int walkParam;
         
         #region Unity Messages
         private void Awake()
         {
             Assert.IsNotNull(playerSpriteRenderer);
-            Assert.IsNotNull(playerAnimator);
+            Assert.IsNotNull(outfitAnimators);
             Assert.IsNotNull(movementInput);
             Assert.IsNotNull(movementInput.action);
             
             movementInput.action.Enable();
-        }
-
-        private void OnDestroy()
-        {
-            
         }
 
         private void Update()
@@ -38,22 +36,22 @@ namespace ClothesShopToy
             UpdateAnimatorParameters();
         }
         #endregion
-
-        #region Public Methods
-
-        #endregion
-
+        
         #region Private Methods
         private void UpdateAnimatorParameters()
         {
             Vector2 input = movementInput.action.ReadValue<Vector2>();
             bool walking = input.sqrMagnitude > 0f;
-            playerAnimator.SafeSetParameter(walkParam, walking);
+            
+            mainAnimator.SafeSetParameter(walkParam, walking);
+            outfitAnimators.ForEach(animator => animator.SafeSetParameter(walkParam, walking));
             
             if (!walking) return;
 
-            playerAnimator.SafeSetParameter(horizontalParam, input.x);
-            playerAnimator.SafeSetParameter(verticalParam, input.y);
+            mainAnimator.SafeSetParameter(horizontalParam, input.x);
+            mainAnimator.SafeSetParameter(verticalParam, input.y);
+            outfitAnimators.ForEach(animator => animator.SafeSetParameter(horizontalParam, input.x));
+            outfitAnimators.ForEach(animator => animator.SafeSetParameter(verticalParam, input.y));
         }
         #endregion
     }
