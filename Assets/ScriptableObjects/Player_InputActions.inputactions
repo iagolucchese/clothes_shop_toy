@@ -1,5 +1,5 @@
 {
-    "name": "MouseAndKeyboardInputActions",
+    "name": "Player_InputActions",
     "maps": [
         {
             "name": "Player",
@@ -27,6 +27,15 @@
                     "name": "Cancel",
                     "type": "Button",
                     "id": "2d34235f-b653-4a20-9fb3-e5c74a267069",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "OpenBag",
+                    "type": "Button",
+                    "id": "99c5656c-f681-4e71-beb9-fcf9b9406a0f",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -229,6 +238,39 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Cancel",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f087ed22-d524-48dd-87ba-11e8f1f50270",
+                    "path": "<Keyboard>/c",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PC",
+                    "action": "OpenBag",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "43a550d5-e916-4086-a7ad-bfb62f52ccdd",
+                    "path": "<Mouse>/middleButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PC",
+                    "action": "OpenBag",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d8091042-40d9-492b-848d-6763c7d95393",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "OpenBag",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
