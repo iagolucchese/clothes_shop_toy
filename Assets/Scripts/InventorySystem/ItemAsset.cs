@@ -11,7 +11,7 @@ namespace ClothesShopToy
         [SerializeField, Min(0)] protected int itemSellValue;
         [Header("Visual & UI")]
         [SerializeField] protected string itemName;
-        [SerializeField, ShowAssetPreview] protected Sprite itemIcon;
+        [SerializeField, ShowAssetPreview(width:64, height:64)] protected Sprite itemIcon;
 
         public int ItemCost => itemCost;
         public int ItemSellValue => itemSellValue;

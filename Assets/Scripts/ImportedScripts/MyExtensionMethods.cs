@@ -15,7 +15,7 @@ namespace ImportedScripts
         /// <returns></returns>
         public static bool HasParameter(this Animator animator, string paramName)
         {
-            if (animator == null) return false;
+            if (animator == null || animator.runtimeAnimatorController == null) return false;
             foreach (AnimatorControllerParameter param in animator.parameters)
             {
                 if (param.name == paramName) return true;
@@ -32,7 +32,7 @@ namespace ImportedScripts
         /// <returns></returns>
         public static bool HasParameter(this Animator animator, int paramNameHash)
         {
-            if (animator == null) return false;
+            if (animator == null || animator.runtimeAnimatorController == null) return false;
             foreach (AnimatorControllerParameter param in animator.parameters)
             {
                 if (param.nameHash == paramNameHash) return true;

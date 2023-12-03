@@ -14,11 +14,11 @@ namespace ClothesShopToy
         [SerializeField] private InputActionReference movementInput;
         [SerializeField] private Animator mainAnimator;
         [SerializeField] private List<Animator> outfitAnimators;
-
         [Header("Animator Parameters")]
         [SerializeField, AnimatorParam("mainAnimator")] private int horizontalParam;
         [SerializeField, AnimatorParam("mainAnimator")] private int verticalParam;
         [SerializeField, AnimatorParam("mainAnimator")] private int walkParam;
+        private Vector2 receivedInput;
         
         #region Unity Messages
         private void Awake()
@@ -40,18 +40,18 @@ namespace ClothesShopToy
         #region Private Methods
         private void UpdateAnimatorParameters()
         {
-            Vector2 input = movementInput.action.ReadValue<Vector2>();
-            bool walking = input.sqrMagnitude > 0f;
-            
-            mainAnimator.SafeSetParameter(walkParam, walking);
-            outfitAnimators.ForEach(animator => animator.SafeSetParameter(walkParam, walking));
-            
-            if (!walking) return;
+            Vector2 newInput = movementInput.action.ReadValue<Vector2>();
+            bool walking = newInput.sqrMagnitude > 0f;
+            if (walking)
+                receivedInput = newInput;
 
-            mainAnimator.SafeSetParameter(horizontalParam, input.x);
-            mainAnimator.SafeSetParameter(verticalParam, input.y);
-            outfitAnimators.ForEach(animator => animator.SafeSetParameter(horizontalParam, input.x));
-            outfitAnimators.ForEach(animator => animator.SafeSetParameter(verticalParam, input.y));
+            mainAnimator.SafeSetParameter(walkParam, walking);
+            mainAnimator.SafeSetParameter(horizontalParam, receivedInput.x);
+            mainAnimator.SafeSetParameter(verticalParam, receivedInput.y);
+            
+            outfitAnimators.ForEach(animator => animator.SafeSetParameter(walkParam, walking));
+            outfitAnimators.ForEach(animator => animator.SafeSetParameter(horizontalParam, receivedInput.x));
+            outfitAnimators.ForEach(animator => animator.SafeSetParameter(verticalParam, receivedInput.y));
         }
         #endregion
     }
