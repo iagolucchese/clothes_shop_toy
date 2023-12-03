@@ -3,7 +3,6 @@ using ImportedScripts;
 using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.Assertions;
-using UnityEngine.InputSystem;
 
 namespace ClothesShopToy
 {
@@ -11,7 +10,7 @@ namespace ClothesShopToy
     {
         [Header("Inspector References")]
         [SerializeField] private SpriteRenderer playerSpriteRenderer;
-        [SerializeField] private InputActionReference movementInput;
+        [SerializeField] private InputMovement2D inputMovement;
         [SerializeField] private Animator mainAnimator;
         [SerializeField] private List<Animator> outfitAnimators;
         [Header("Animator Parameters")]
@@ -25,10 +24,7 @@ namespace ClothesShopToy
         {
             Assert.IsNotNull(playerSpriteRenderer);
             Assert.IsNotNull(outfitAnimators);
-            Assert.IsNotNull(movementInput);
-            Assert.IsNotNull(movementInput.action);
-            
-            movementInput.action.Enable();
+            Assert.IsNotNull(inputMovement);
         }
 
         private void Update()
@@ -40,10 +36,9 @@ namespace ClothesShopToy
         #region Private Methods
         private void UpdateAnimatorParameters()
         {
-            Vector2 newInput = movementInput.action.ReadValue<Vector2>();
-            bool walking = newInput.sqrMagnitude > 0f;
+            bool walking = inputMovement.IsMovementLocked == false && inputMovement.MovementMagnitude > 0f;
             if (walking)
-                receivedInput = newInput;
+                receivedInput = inputMovement.MoveInput;
 
             mainAnimator.SafeSetParameter(walkParam, walking);
             mainAnimator.SafeSetParameter(horizontalParam, receivedInput.x);

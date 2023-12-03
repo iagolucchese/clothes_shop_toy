@@ -11,6 +11,9 @@ namespace ClothesShopToy
         public event InventoryItemEvent OnItemRemoved;
         
         [SerializeField] private List<ItemAsset> itemsOnInventory;
+
+        public List<ItemAsset> ItemsOnInventory => itemsOnInventory;
+        public int AmountOfItemsInInventory => itemsOnInventory.SafeCount();
         
         #region Unity Messages
         private void OnEnable()

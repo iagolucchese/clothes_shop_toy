@@ -451,7 +451,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpriteRenderer: {fileID: 8689953707495266964}
-  movementInput: {fileID: -7512779594774142179, guid: b662c525f919eb946af95d9326851dc6, type: 3}
+  inputMovement: {fileID: 8689953708617731947}
   mainAnimator: {fileID: 172600596105371455}
   outfitAnimators:
   - {fileID: 3797956737049690100}
@@ -632,4 +632,4 @@ MonoBehaviour:
   rigidbody2D: {fileID: 8689953708617731944}
   moveInput: {x: 0, y: 0}
   movementMagnitude: 0
-  lockedMovement: 0
+  movementLocks: 0

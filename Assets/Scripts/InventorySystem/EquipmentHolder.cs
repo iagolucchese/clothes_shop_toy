@@ -62,8 +62,8 @@ namespace ClothesShopToy
                 if (slotPair.slot != slot) continue;
                 if (slotPair.item != null)
                 {
-                    OnItemUnequipped?.Invoke(this, slotPair.slot, slotPair.item);
                     slotPair.item = null;
+                    OnItemUnequipped?.Invoke(this, slotPair.slot, slotPair.item);
                     return true;
                 }
                 return false;
@@ -77,15 +77,29 @@ namespace ClothesShopToy
             foreach (SlotEquipmentPair slotPair in equipmentSlots)
             {
                 if (slotPair.item != item) continue;
-                OnItemUnequipped?.Invoke(this, slotPair.slot, slotPair.item);
                 slotPair.item = null;
+                OnItemUnequipped?.Invoke(this, slotPair.slot, slotPair.item);
                 return true;
             }
             return false;
         }
-        #endregion
 
-        #region Private Methods
+        public bool IsItemEquipped(ItemAsset item)
+        {
+            if (item == null) return false;
+            foreach (SlotEquipmentPair slotPair in equipmentSlots)
+            {
+                if (slotPair.item == item)
+                    return true;
+            }
+            return false;
+        }
+
+        public bool ToggleItemEquipped(ItemEquipmentAsset item)
+        {
+            bool isEquipped = IsItemEquipped(item);
+            return isEquipped ? UnequipItem(item) : TryEquipItem(item);
+        }
         #endregion
     }
 }
