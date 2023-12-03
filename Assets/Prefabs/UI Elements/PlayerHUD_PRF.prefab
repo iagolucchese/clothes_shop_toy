@@ -66,8 +66,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 1299632670, guid: e9ebdc7732f36fa4b90db0456503bece, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -75,7 +75,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 0.25
 --- !u!1 &8630383127305590050
 GameObject:
   m_ObjectHideFlags: 0
@@ -183,6 +183,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 6756899613641505034}
   canvasGroup: {fileID: 7799493636764435491}
+  onScreenShow:
+    m_PersistentCalls:
+      m_Calls: []
+  onScreenHide:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &8724141624412470209
 GameObject:
   m_ObjectHideFlags: 0
