@@ -26,6 +26,7 @@ namespace ClothesShopToy.UI
         protected override void OnDestroy()
         {
             base.OnDestroy();
+            ShopItemUI.OnItemClicked -= ItemClickedCallback;
         }
         #endregion
 
