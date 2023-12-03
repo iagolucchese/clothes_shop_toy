@@ -31,7 +31,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8689953708617731941}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5031667378990181269
 MonoBehaviour:
@@ -45,8 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84bb673cca2046e7b3fe2625d1a4cff6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemsOnInventory:
-  - {fileID: 11400000, guid: f5de3532cf15226489d8cdc68f2d6a03, type: 2}
+  itemsOnInventory: []
 --- !u!114 &70706529907184320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -417,7 +416,7 @@ Transform:
   - {fileID: 5579431512446892936}
   - {fileID: 5537793162382075619}
   m_Father: {fileID: 8689953708617731941}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1409868114318809322
 MonoBehaviour:
@@ -564,8 +563,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 8689953707495266967}
   - {fileID: 8759284284574289686}
+  - {fileID: 8689953707495266967}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
